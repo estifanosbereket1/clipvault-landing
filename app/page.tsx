@@ -1,4 +1,5 @@
-import { QrCode, Radio, Search, Flame, Palette, ShieldCheck } from "lucide-react";
+import DownloadButton from "@/components/download.button";
+import { QrCode, Radio, Search, Flame, Palette, ShieldCheck, History } from "lucide-react";
 
 export default function Home() {
   const features = [
@@ -12,7 +13,7 @@ export default function Home() {
       icon: Radio,
       title: "LAN peer sync",
       description:
-        "Your history mirrors across your own devices on the same network. No relay server, no cloud in between.",
+        "Your history mirrors automatically across every device on your network — desktop, laptop, whatever's running ClipVault."
     },
     {
       icon: Search,
@@ -34,10 +35,10 @@ export default function Home() {
       image: "/screenshots/theming.png",
     },
     {
-      icon: ShieldCheck,
-      title: "Local-first, always",
+      icon: History,
+      title: "Visual history timeline",
       description:
-        "Clipboard data never leaves your devices or touches a third-party server. Nothing to configure, nothing to trust.",
+        "Scroll back through everything you've copied with a visual playback of your clipboard over time.",
     },
   ];
   return (
@@ -46,8 +47,10 @@ export default function Home() {
       <nav className="border-b border-border-color relative z-10">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-md bg-accent/15 border border-accent/30 flex items-center justify-center">
-              <span className="font-display text-xs text-accent">CV</span>
+            <div className="w-7 h-7 rounded-md  flex items-center justify-center">
+              {/*<span className="font-display text-xs text-accent">CV</span>*/}
+              <img src="/app-logo.png" alt="" className="w-full block" />
+
             </div>
             <span className="font-display text-sm font-medium">ClipVault</span>
             <span className="ml-1 text-[10px] font-mono text-muted border border-border-color rounded px-1.5 py-0.5">
@@ -81,7 +84,7 @@ export default function Home() {
                 <span className="w-1.5 h-1.5 rounded-full bg-accent" />
               </span>
               <span className="font-mono text-xs text-muted tracking-wide">
-                open source · linux · local-first
+                open source · linux · system tray
               </span>
             </div>
 
@@ -93,20 +96,21 @@ export default function Home() {
                 everywhere.
               </span>
               <span className="block text-2xl md:text-3xl text-muted font-medium tracking-normal mt-1">
-                Never in the cloud.
+                Searchable. Synced. Yours.
               </span>
             </h1>
 
             <p className="mt-6 text-muted text-lg leading-relaxed max-w-md">
               ClipVault keeps your clipboard history organized, searchable, and
-              reachable from your phone — without ever sending your data
-              anywhere but your own devices.
+              reachable from your phone , with QR handoff, diffing, and
+              burn-after-copy built in.
             </p>
 
             <div className="mt-8 flex items-center gap-4">
-              <button className="relative bg-accent text-white px-5 py-2.5 rounded-md text-sm font-medium shadow-[0_0_0_1px_rgba(91,140,255,0.4),0_8px_24px_-8px_rgba(91,140,255,0.6)] hover:bg-accent/90 hover:shadow-[0_0_0_1px_rgba(91,140,255,0.5),0_12px_28px_-8px_rgba(91,140,255,0.75)] transition-all">
+              <DownloadButton className="relative bg-accent text-white px-5 py-2.5 rounded-md text-sm font-medium shadow-[0_0_0_1px_rgba(91,140,255,0.4),0_8px_24px_-8px_rgba(91,140,255,0.6)] hover:bg-accent/90 hover:shadow-[0_0_0_1px_rgba(91,140,255,0.5),0_12px_28px_-8px_rgba(91,140,255,0.75)] transition-all" />
+              {/*<button className="relative bg-accent text-white px-5 py-2.5 rounded-md text-sm font-medium shadow-[0_0_0_1px_rgba(91,140,255,0.4),0_8px_24px_-8px_rgba(91,140,255,0.6)] hover:bg-accent/90 hover:shadow-[0_0_0_1px_rgba(91,140,255,0.5),0_12px_28px_-8px_rgba(91,140,255,0.75)] transition-all">
                 Download for Linux
-              </button>
+              </button>*/}
               <a
                 href="https://github.com/estifanosbereket1/clipvault"
                 className="border border-border-color px-5 py-2.5 rounded-md text-sm font-medium hover:border-muted hover:bg-white/[0.03] transition-colors"
@@ -270,6 +274,29 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Footer */}
+      <footer className="relative border-t border-border-color">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between text-sm text-muted">
+          <span>Made by Estifanos</span>
+          <div className="flex items-center gap-6">
+            <a
+              href="https://github.com/estifanosbereket1/clipvault"
+              className="hover:text-foreground transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://github.com/estifanosbereket1/clipvault"
+              className="hover:text-foreground transition-colors"
+            >
+              Star this project
+            </a>
+            <a href="/terms" className="hover:text-foreground transition-colors">
+              Terms
+            </a>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
