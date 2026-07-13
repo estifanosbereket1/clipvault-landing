@@ -1,65 +1,196 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+    <main className="flex-1 relative noise-overlay">
+      {/* Nav */}
+      <nav className="border-b border-border-color relative z-10">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 rounded-md bg-accent/15 border border-accent/30 flex items-center justify-center">
+              <span className="font-display text-xs text-accent">CV</span>
+            </div>
+            <span className="font-display text-sm font-medium">ClipVault</span>
+            <span className="ml-1 text-[10px] font-mono text-muted border border-border-color rounded px-1.5 py-0.5">
+              v0.1.0
+            </span>
+          </div>
+          <div className="flex items-center gap-6 text-sm text-muted">
+            <a href="#features" className="hover:text-foreground transition-colors">
+              Features
+            </a>
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="https://github.com/estifanosbereket1/clipvault"
+              className="flex items-center gap-1.5 hover:text-foreground transition-colors"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+              </svg>
+              GitHub
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </nav>
+
+      {/* Hero */}
+      <section className="relative hero-glow">
+         <div className="bg-grid-layer" />
+        <div className="max-w-6xl mx-auto px-6 pt-20 pb-16 grid md:grid-cols-2 gap-16 items-center relative z-10">
+          <div>
+            <div className="inline-flex items-center gap-2 mb-5 border border-border-color rounded-full pl-1 pr-3 py-1 bg-surface/60">
+              <span className="w-4 h-4 rounded-full bg-accent/15 flex items-center justify-center">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+              </span>
+              <span className="font-mono text-xs text-muted tracking-wide">
+                open source · linux · local-first
+              </span>
+            </div>
+
+            <h1 className="font-display font-bold leading-[1.05] tracking-tight">
+              <span className="block text-4xl md:text-[3.4rem] text-foreground">
+                Your clipboard,
+              </span>
+              <span className="block text-4xl md:text-[3.4rem] text-foreground">
+                everywhere.
+              </span>
+              <span className="block text-2xl md:text-3xl text-muted font-medium tracking-normal mt-1">
+                Never in the cloud.
+              </span>
+            </h1>
+
+            <p className="mt-6 text-muted text-lg leading-relaxed max-w-md">
+              ClipVault keeps your clipboard history organized, searchable, and
+              reachable from your phone — without ever sending your data
+              anywhere but your own devices.
+            </p>
+
+            <div className="mt-8 flex items-center gap-4">
+              <button className="relative bg-accent text-white px-5 py-2.5 rounded-md text-sm font-medium shadow-[0_0_0_1px_rgba(91,140,255,0.4),0_8px_24px_-8px_rgba(91,140,255,0.6)] hover:bg-accent/90 hover:shadow-[0_0_0_1px_rgba(91,140,255,0.5),0_12px_28px_-8px_rgba(91,140,255,0.75)] transition-all">
+                Download for Linux
+              </button>
+              <a
+                href="https://github.com/estifanosbereket1/clipvault"
+                className="border border-border-color px-5 py-2.5 rounded-md text-sm font-medium hover:border-muted hover:bg-white/[0.03] transition-colors"
+              >
+                View on GitHub
+              </a>
+            </div>
+
+            <div className="mt-8 flex items-center gap-4 text-xs font-mono text-muted">
+              <span>Debian</span>
+              <span className="w-1 h-1 rounded-full bg-border-color" />
+              <span>Ubuntu</span>
+              <span className="w-1 h-1 rounded-full bg-border-color" />
+              <span>Fedora</span>
+              <span className="w-1 h-1 rounded-full bg-border-color" />
+              <span>Arch</span>
+            </div>
+          </div>
+
+          {/* Mock app UI as hero visual */}
+          <div className="relative">
+            <div className="absolute -inset-4 bg-accent/5 rounded-2xl blur-2xl" />
+            <div className="relative bg-surface border border-border-color rounded-xl overflow-hidden shadow-[0_1px_0_0_rgba(255,255,255,0.06)_inset,0_24px_60px_-16px_rgba(0,0,0,0.7)]">
+              <div className="flex items-center gap-1.5 px-4 py-3 border-b border-border-color bg-white/[0.015]">
+                <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                <span className="ml-2 text-xs text-muted font-mono">
+                  Clipboard History
+                </span>
+                <span className="ml-auto text-[10px] font-mono text-muted/60">
+                  ⌘⇧V
+                </span>
+              </div>
+              <div className="p-3 space-y-1.5">
+                {[
+                  { text: "npm run build", tag: "CODE", time: "2m ago" },
+                  { text: "https://clipvault.app/docs", tag: "URL", time: "8m ago" },
+                  { text: '{"status": "ok", "id": 42}', tag: "JSON", time: "14m ago" },
+                  { text: "192.168.1.42", tag: "IP", time: "1h ago" },
+                ].map((row, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <span className="text-[10px] font-mono text-accent bg-accent/10 px-1.5 py-0.5 rounded shrink-0">
+                        {row.tag}
+                      </span>
+                      <span className="text-sm text-foreground/90 truncate font-mono">
+                        {row.text}
+                      </span>
+                    </div>
+                    <span className="text-xs text-muted flex-shrink-0 ml-3">
+                      {row.time}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* How it works */}
+      <section className="relative border-t border-border-color">
+        <div className="max-w-6xl mx-auto px-6 py-24">
+          <div className="max-w-lg mb-14">
+            <p className="font-mono text-xs text-accent mb-3 tracking-wide">
+               how it works
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+              Three steps. Zero cloud.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-10">
+            <div>
+              <span className="font-mono text-xs text-accent border border-accent/30 rounded-full w-7 h-7 flex items-center justify-center mb-4">
+                01
+              </span>
+              <h3 className="font-display text-base font-semibold text-foreground mb-2">
+                Install with one command
+              </h3>
+              <p className="text-sm text-muted leading-relaxed">
+                Runs as a lightweight system-tray app on Ubuntu, Linux Mint, and
+                other GTK3-based distros.
+              </p>
+            </div>
+
+            <div>
+              <span className="font-mono text-xs text-accent border border-accent/30 rounded-full w-7 h-7 flex items-center justify-center mb-4">
+                02
+              </span>
+              <h3 className="font-display text-base font-semibold text-foreground mb-2">
+                Copy anything
+              </h3>
+              <p className="text-sm text-muted leading-relaxed">
+                Every copy is saved automatically — searchable, pinnable, and
+                type-detected (JSON, code, URLs, JWTs) with zero setup.
+              </p>
+            </div>
+
+            <div>
+              <span className="font-mono text-xs text-accent border border-accent/30 rounded-full w-7 h-7 flex items-center justify-center mb-4">
+                03
+              </span>
+              <h3 className="font-display text-base font-semibold text-foreground mb-2">
+                Scan a QR or sync across devices
+              </h3>
+              <p className="text-sm text-muted leading-relaxed mb-4">
+                Send any entry to your phone over local HTTPS, or let LAN peer
+                sync mirror your history across your own machines.
+              </p>
+              <div className="rounded-lg overflow-hidden border border-border-color max-w-[220px]">
+                <img
+                  src="/screenshots/qr-modal.png"
+                  alt="ClipVault QR code modal"
+                  className="w-full block"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
