@@ -14,7 +14,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ClipVault — Your clipboard, everywhere. Never in the cloud.",
+  title: "ClipVault , Your clipboard, everywhere.",
   description:
     "An open-source clipboard manager for Linux with QR-to-phone copy, LAN peer sync, search, diffing, and full local-first privacy.",
 };
