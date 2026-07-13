@@ -31,7 +31,8 @@ export default function DownloadButton({
       setSubmitting(false);
       setOpen(false);
       setAgreed(false);
-      console.log("Trying to download")
+      // console.log("Trying to download")
+      window.location.href = "/api/download";
       // window.location.href = DOWNLOAD_URL;
     }
   }
