@@ -1,5 +1,20 @@
 import DownloadButton from "@/components/download.button";
-import { QrCode, Radio, Search, Flame, Palette, ShieldCheck, History } from "lucide-react";
+
+import {
+  QrCode,
+  Radio,
+  Search,
+  Flame,
+  Palette,
+  ShieldCheck,
+  Minus,
+  Square,
+  X,
+  Star,
+  Copy,
+  Trash2,
+  History,
+} from "lucide-react";
 
 export default function Home() {
   const features = [
@@ -134,41 +149,111 @@ export default function Home() {
           <div className="relative">
             <div className="absolute -inset-4 bg-accent/5 rounded-2xl blur-2xl" />
             <div className="relative bg-surface border border-border-color rounded-xl overflow-hidden shadow-[0_1px_0_0_rgba(255,255,255,0.06)_inset,0_24px_60px_-16px_rgba(0,0,0,0.7)]">
-              <div className="flex items-center gap-1.5 px-4 py-3 border-b border-border-color bg-white/[0.015]">
-                <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-                <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-                <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-                <span className="ml-2 text-xs text-muted font-mono">
-                  Clipboard History
+              {/* Title bar */}
+              <div className="relative flex items-center justify-center px-4 py-2.5 border-b border-border-color bg-white/[0.015]">
+                <span className="text-xs font-mono text-foreground/80">
+                  ClipVault History
                 </span>
-                <span className="ml-auto text-[10px] font-mono text-muted/60">
-                  ⌘⇧V
-                </span>
+                <div className="absolute right-3 flex items-center gap-3 text-muted/50">
+                  <Minus className="w-3 h-3" strokeWidth={2} />
+                  <Square className="w-2.5 h-2.5" strokeWidth={2} />
+                  <X className="w-3 h-3" strokeWidth={2} />
+                </div>
               </div>
-              <div className="p-3 space-y-1.5">
-                {[
-                  { text: "npm run build", tag: "CODE", time: "2m ago" },
-                  { text: "https://clipvault.app/docs", tag: "URL", time: "8m ago" },
-                  { text: '{"status": "ok", "id": 42}', tag: "JSON", time: "14m ago" },
-                  { text: "192.168.1.42", tag: "IP", time: "1h ago" },
-                ].map((row, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors"
-                  >
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <span className="text-[10px] font-mono text-accent bg-accent/10 px-1.5 py-0.5 rounded shrink-0">
-                        {row.tag}
-                      </span>
-                      <span className="text-sm text-foreground/90 truncate font-mono">
-                        {row.text}
-                      </span>
-                    </div>
-                    <span className="text-xs text-muted flex-shrink-0 ml-3">
-                      {row.time}
-                    </span>
+
+              {/* Sub-header */}
+              <div className="flex items-center justify-between px-4 py-2.5 border-b border-border-color">
+                <span className="text-xs text-muted font-mono">Clipboard History</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-mono text-muted border border-border-color rounded px-2 py-1">
+                    Compare Mode
+                  </span>
+                  <span className="text-[10px] font-mono text-muted border border-border-color rounded px-2 py-1">
+                    Refresh
+                  </span>
+                </div>
+              </div>
+
+              {/* Search */}
+              <div className="px-3 pt-3">
+                <div className="flex items-center gap-2 border border-accent/40 rounded-lg px-3 py-2 bg-background/40">
+                  <Search className="w-3.5 h-3.5 text-muted" strokeWidth={2} />
+                  <span className="text-xs text-muted/70 font-mono">
+                    Search clipboard history...
+                  </span>
+                </div>
+              </div>
+
+              <div className="p-3 space-y-4">
+                {/* Pinned */}
+                <div>
+                  <p className="text-[10px] font-mono text-muted/70 tracking-wide mb-1.5 px-1">
+                    PINNED
+                  </p>
+                  <div className="space-y-1">
+                    {[
+                      { text: "def open_about():  from about_window i...", time: "57m ago" },
+                      { text: "on_about=open_about,", time: "57m ago" },
+                    ].map((row, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center justify-between px-2.5 py-2 rounded-lg hover:bg-white/5 transition-colors"
+                      >
+                        <div className="flex items-center gap-2 min-w-0">
+                          <span className="text-[10px] text-muted/60 font-mono shrink-0">
+                            {row.time}
+                          </span>
+                          <span className="text-xs text-foreground/90 truncate font-mono">
+                            {row.text}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-muted/60 shrink-0 ml-2">
+                          <Star className="w-3 h-3 fill-accent text-accent" />
+                          <QrCode className="w-3 h-3" />
+                          <Copy className="w-3 h-3" />
+                          <Trash2 className="w-3 h-3" />
+                          <Flame className="w-3 h-3" />
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
+
+                {/* Recent */}
+                <div>
+                  <p className="text-[10px] font-mono text-muted/70 tracking-wide mb-1.5 px-1">
+                    RECENT
+                  </p>
+                  <div className="space-y-1">
+                    {[
+                      { text: "npm run build", time: "2m ago" },
+                      { text: "https://clipvault.app/docs", time: "8m ago" },
+                      { text: '{"status": "ok", "id": 42}', time: "14m ago" },
+                      { text: "192.168.1.42", time: "1h ago" },
+                    ].map((row, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center justify-between px-2.5 py-2 rounded-lg hover:bg-white/5 transition-colors"
+                      >
+                        <div className="flex items-center gap-2 min-w-0">
+                          <span className="text-[10px] text-muted/60 font-mono shrink-0">
+                            {row.time}
+                          </span>
+                          <span className="text-xs text-foreground/90 truncate font-mono">
+                            {row.text}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-muted/40 shrink-0 ml-2">
+                          <Star className="w-3 h-3" />
+                          <QrCode className="w-3 h-3" />
+                          <Copy className="w-3 h-3" />
+                          <Trash2 className="w-3 h-3" />
+                          <Flame className="w-3 h-3" />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
