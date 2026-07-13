@@ -1,4 +1,45 @@
+import { QrCode, Radio, Search, Flame, Palette, ShieldCheck } from "lucide-react";
+
 export default function Home() {
+  const features = [
+    {
+      icon: QrCode,
+      title: "QR-to-phone copy",
+      description:
+        "Scan a code to send any entry straight to your phone's clipboard, over local HTTPS — no app, no account.",
+    },
+    {
+      icon: Radio,
+      title: "LAN peer sync",
+      description:
+        "Your history mirrors across your own devices on the same network. No relay server, no cloud in between.",
+    },
+    {
+      icon: Search,
+      title: "Search, pin, diff",
+      description:
+        "Fuzzy search your full history, pin what you reuse often, and line-diff any two entries side by side.",
+    },
+    {
+      icon: Flame,
+      title: "Burn-after-copy",
+      description:
+        "Mark a value as one-time. ClipVault wipes it from the clipboard automatically right after you paste it.",
+    },
+    {
+      icon: Palette,
+      title: "Fully themeable",
+      description:
+        "Multiple dark and light palettes included, with automatic matching to your system theme.",
+      image: "/screenshots/theming.png",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Local-first, always",
+      description:
+        "Clipboard data never leaves your devices or touches a third-party server. Nothing to configure, nothing to trust.",
+    },
+  ];
   return (
     <main className="flex-1 relative noise-overlay">
       {/* Nav */}
@@ -126,6 +167,44 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section id="features" className="relative border-t border-border-color">
+        <div className="max-w-6xl mx-auto px-6 py-24">
+          <div className="max-w-lg mb-14">
+            <p className="font-mono text-xs text-accent mb-3 tracking-wide">
+              features
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+              Everything stays yours.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 border-t border-l border-border-color">
+            {features.map((f) => (
+              <div
+                key={f.title}
+                className="group bg-background p-6 border-r border-b border-border-color hover:bg-surface transition-colors"
+              >
+                <div className="w-9 h-9 rounded-md bg-accent/10 border border-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/15 transition-colors">
+                  <f.icon className="w-4.5 h-4.5 text-accent" strokeWidth={1.75} />
+                </div>
+                <h3 className="font-display text-sm font-semibold text-foreground mb-1.5">
+                  {f.title}
+                </h3>
+                <p className="text-sm text-muted leading-relaxed">
+                  {f.description}
+                </p>
+                {f.image && (
+                  <div className="mt-4 rounded-lg overflow-hidden border border-border-color">
+                    <img src={f.image} alt={f.title} className="w-full block" />
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
