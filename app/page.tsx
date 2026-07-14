@@ -69,7 +69,7 @@ export default function Home() {
             </div>
             <span className="font-display text-sm font-medium">ClipVault</span>
             <span className="ml-1 text-[10px] font-mono text-muted border border-border-color rounded px-1.5 py-0.5">
-              v0.1.0
+              v1.1.0
             </span>
           </div>
           <div className="flex items-center gap-6 text-sm text-muted">
