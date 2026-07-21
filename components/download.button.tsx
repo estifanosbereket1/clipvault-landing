@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const INSTALL_COMMAND =
-  "curl -fsSL https://raw.githubusercontent.com/estifanosbereket1/clipvault/main/bootstrap.sh | bash";
+  "curl -fsSL -o clipvault.deb https://github.com/estifanosbereket1/clipvault/releases/latest/download/clipvault.deb && sudo apt install ./clipvault.deb";
 
 export default function DownloadButton({
   className = "",
@@ -144,8 +144,9 @@ export default function DownloadButton({
                   <p className="mt-3 text-sm leading-7 text-muted">
                     Copy the command below and paste it into your terminal.
                     <br />
-                    The installer downloads the latest version and walks you
-                    through each installation step.
+                    It downloads the latest .deb and installs it with apt, which
+                    resolves ClipVault&apos;s dependencies automatically. A
+                    setup wizard walks you through the rest on first launch.
                   </p>
                 </div>
 
@@ -238,8 +239,9 @@ export default function DownloadButton({
 
                         <p className="mt-1 text-sm leading-6 text-blue-200/80">
                           Always review commands before executing them. Since
-                          ClipVault is open source, you can inspect the install
-                          script and source code on GitHub before running it.
+                          ClipVault is open source, you can inspect the
+                          packaging scripts and source code on GitHub before
+                          running it.
                         </p>
                       </div>
                     </div>

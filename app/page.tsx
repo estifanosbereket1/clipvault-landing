@@ -14,6 +14,9 @@ import {
   Copy,
   Trash2,
   History,
+  Tag,
+  Bookmark,
+  Braces,
 } from "lucide-react";
 
 export default function Home() {
@@ -55,6 +58,24 @@ export default function Home() {
       description:
         "Scroll back through everything you've copied with a visual playback of your clipboard over time.",
     },
+    {
+      icon: Tag,
+      title: "Tags & filtering",
+      description:
+        "Tag any entry and filter your history down to exactly what you're looking for, instantly.",
+    },
+    {
+      icon: Bookmark,
+      title: "Named snippets",
+      description:
+        "Save text you reuse constantly as a named snippet, kept separate from your rolling history — one click to copy.",
+    },
+    {
+      icon: Braces,
+      title: "Content-type detection",
+      description:
+        "JSON, JWTs, URLs, UUIDs, and code are recognized automatically and badged, with staleness warnings on older entries.",
+    },
   ];
   return (
     <main className="flex-1 relative noise-overlay">
@@ -69,7 +90,7 @@ export default function Home() {
             </div>
             <span className="font-display text-sm font-medium">ClipVault</span>
             <span className="ml-1 text-[10px] font-mono text-muted border border-border-color rounded px-1.5 py-0.5">
-              v1.1.0
+              v2.0.2
             </span>
           </div>
           <div className="flex items-center gap-6 text-sm text-muted">
@@ -135,13 +156,11 @@ export default function Home() {
             </div>
 
             <div className="mt-8 flex items-center gap-4 text-xs font-mono text-muted">
-              <span>Debian</span>
-              <span className="w-1 h-1 rounded-full bg-border-color" />
               <span>Ubuntu</span>
               <span className="w-1 h-1 rounded-full bg-border-color" />
-              <span>Fedora</span>
+              <span>Linux Mint</span>
               <span className="w-1 h-1 rounded-full bg-border-color" />
-              <span>Arch</span>
+              <span>Debian</span>
             </div>
           </div>
 
